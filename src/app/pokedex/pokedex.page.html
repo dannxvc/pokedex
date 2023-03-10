@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pokedex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+      <ion-row>      
+        <ion-col *ngFor="let pokemon of pokemons" size="12" size-lg="4" size-sm="6">
+          <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{pokemon.name}}</ion-card-title>
+                <ion-img src="{{pokemon.img}}" alt="{{pokemon.name}}"></ion-img>
+              </ion-card-header>
+      
+              <ion-card-content>
+                <ion-button expand="block">DETAILS</ion-button>
+              </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
