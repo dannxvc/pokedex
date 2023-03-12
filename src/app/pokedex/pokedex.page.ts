@@ -30,10 +30,10 @@ export class PokedexPage implements OnInit {
           pokemonData = {
             position: i,
             img: res.sprites.other.dream_world.front_default,
-            name: res.name
+            name: res.name,
+            id: res.id
           };
           this.pokemons.push(pokemonData);
-          console.log(res);
         },
         err=>{
   

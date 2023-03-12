@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Pokémon</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pokedex" color="primary" text="POKéDEX"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="pokemon-container" *ngIf="pokemon">
+    <img class="pokemon-img" src="{{pokemon.img}}" alt="{{pokemon.name}}"/>
+    <!-- <img class="pokemon-bg" src="{{pokemon.img}}" alt="{{pokemon.name}}"/> -->
+    <ion-card class="pokemon-card">
+      <ion-card-header>
+        <h1 class="ion-text-start pokemon-name" color="dark">{{pokemon.name}}</h1>
+        <div [ngClass]="(pokemon.type=='water')?'pokemon-type-water':(pokemon.type=='grass')?'pokemon-type-grass':''" class="pokemon-type" >{{pokemon.type}}</div>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-grid class="pokemon-grid-chars">
+            <ion-row>
+              <ion-col class="pokemon-char">
+                <ion-grid class="pokemon-grid-char">
+                  <div class="pokemon-char-subtitle">
+                    <img class="char-img" src="{{pokemon.img_ht}}" alt="{{pokemon.name}}"/>
+                    <ion-text class="char-description">Height</ion-text>
+                  </div>
+                  <div class="pokemon-char-value">
+                    <ion-text class="char-value">{{pokemon.height}}</ion-text>
+                  </div>
+                </ion-grid>
+              </ion-col>
+              <ion-col class="pokemon-char">
+                <ion-grid class="pokemon-grid-char">
+                  <div class="pokemon-char-subtitle">
+                    <img class="char-img" src="{{pokemon.img_wt}}" alt="{{pokemon.name}}"/>
+                    <ion-text class="char-description">Weight</ion-text>
+                  </div>
+                  <div class="pokemon-char-value">
+                    <ion-text class="char-value">{{pokemon.weight}}</ion-text>
+                  </div>
+                </ion-grid>
+              </ion-col>
+              <ion-col class="pokemon-char">
+                <ion-grid class="pokemon-grid-char">
+                  <div class="pokemon-char-subtitle">
+                    <img class="char-img-exp" src="../../assets/icon/exp.png" alt="{{pokemon.name}}"/>
+                    <ion-text class="char-description">Experience</ion-text>
+                  </div>
+                  <div class="pokemon-char-value">
+                    <ion-text class="char-value">{{pokemon.exp}}</ion-text>
+                  </div>
+                </ion-grid>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
