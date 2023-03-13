@@ -3,16 +3,30 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home" color="primary" text="HOME"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>Pokédex</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <h1 class="ion-text-center title">Pokédex</h1>
     <p class="ion-text-center description">You can find every pokémon here, take a look!</p>
+    <div class="pokedex-btns">
+      <ion-button 
+        shape="round"
+        (click)="previousPage()"
+        [ngClass]="(page==0)?'btn-disabled':''"
+      >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <ion-button 
+        shape="round"
+        (click)="nextPage()"
+      >
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
     <ion-grid>
       <ion-row>    
-        <ion-col *ngFor="let pokemon of pokemons" size="12" size-lg="4" size-sm="6">
+        <ion-col *ngFor="let pokemon of pokemons | pokefilter:page" size="12" size-lg="4" size-sm="6">
           <ion-card >
               <ion-card-header>
                 <ion-card-title class="ion-text-center" color="dark">{{pokemon.name}}</ion-card-title>

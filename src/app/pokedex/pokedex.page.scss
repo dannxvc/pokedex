@@ -36,3 +36,13 @@ ion-img{
 ion-card-title{
     margin-bottom: 2rem;
 }
+.pokedex-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.btn-disabled{
+    pointer-events: none;
+    // cursor: no-drop; 
+}

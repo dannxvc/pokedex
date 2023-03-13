@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { PokemonService } from '../service/pokemon.service';
+import { Pokemon } from '../interfaces/pokemon.interfaces';
 
 @Component({
   selector: 'app-pokedex',
@@ -9,37 +9,23 @@ import { PokemonService } from '../service/pokemon.service';
 })
 export class PokedexPage implements OnInit {
 
-  pokemons : any[] =[];
-
+  public pokemons : Pokemon[] =[];
+  public page: number = 0;
 
   constructor(
     private pokeService: PokemonService
   ) {}
 
   ngOnInit(): void {
-    this.getPokemons();
+    this.pokeService.getAllPokemons()
+      .subscribe(res =>{
+        this.pokemons = res
+      })
   }
-  
-  getPokemons(){
-
-    let pokemonData;
-
-    for(let i = 1; i <=100; i++){
-      this.pokeService.getPokemons(i).subscribe(
-        res => {
-          pokemonData = {
-            position: i,
-            img: res.sprites.other.dream_world.front_default,
-            name: res.name,
-            id: res.id
-          };
-          this.pokemons.push(pokemonData);
-        },
-        err=>{
-  
-        }
-      )
-    }
+  nextPage(){
+    this.page += 10;
   }
-    
+  previousPage(){
+    this.page > 0 ?this.page -= 10:this.page;
+  } 
 }

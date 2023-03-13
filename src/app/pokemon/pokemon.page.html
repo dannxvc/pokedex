@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <!-- <ion-title>Pokémon</ion-title> -->
     <ion-buttons slot="start">
       <ion-back-button defaultHref="pokedex" color="primary" text="POKéDEX"></ion-back-button>
     </ion-buttons>
@@ -10,7 +9,6 @@
 <ion-content>
   <div class="pokemon-container" *ngIf="pokemon">
     <img class="pokemon-img" src="{{pokemon.img}}" alt="{{pokemon.name}}"/>
-    <!-- <img class="pokemon-bg" src="{{pokemon.img}}" alt="{{pokemon.name}}"/> -->
     <ion-card class="pokemon-card">
       <ion-card-header>
         <h1 class="ion-text-start pokemon-name" color="dark">{{pokemon.name}}</h1>
