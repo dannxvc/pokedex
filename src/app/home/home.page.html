@@ -9,12 +9,27 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Pokemon</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="home-title">
+      <div>
+        <strong>Gotta Catch 'Em All</strong>
+      </div>
+      <ion-text color="light">Pokémon, also known as Pocket Monsters in Japan. Find every Pokémon here!</ion-text>
+      <ion-button 
+        shape="round"
+        [routerLink]="['/pokedex']"
+      >
+        GO TO POKÉDEX
+      </ion-button>
+    </div>
+    <img 
+      class="pokemon-main" 
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/136.svg"
+      alt="Pikachu"
+    />
   </div>
 </ion-content>
